@@ -1,0 +1,37 @@
+<!-- myapp/templates/myapp/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataBase Visualization</title>
+</head>
+<body>
+    <h1>DataBase Visualization</h1>
+    
+    <div class="Table">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Is Categorical</th>
+            </tr>
+            {% for data_point in data_points %}
+                <tr>
+                    <td>{{ data_point.name }}</td>
+                    <td>{{ data_point.value }}</td>
+                    <td>{{ data_point.is_categorical }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <hr>
+    {% for key, chart_data in pie_charts.items %}
+        <h2>{{ key }}</h2>
+        <img src="data:image/png;base64,{{ chart_data }}" alt="{{ key }}">
+    {% endfor %}
+    <hr>
+    {% for key, chart_data in histograms.items %}
+        <h2>{{ key }}</h2>
+        <img src="data:image/png;base64,{{ chart_data }}" alt="{{ key }}">
+    {% endfor %}
+</body>
+</html>
