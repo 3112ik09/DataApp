@@ -1,0 +1,81 @@
+*{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.display{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover Effects */
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    table {
+        display: block;
+    }
+    th, td {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Table Header Sticks */
+th {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Zebra Striping */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Sorting Arrows */
+th.sortable {
+    cursor: pointer;
+}
+th.sortable:after {
+    content: '▼'; /* Down arrow for descending sort */
+}
+th.sortable.sorted-asc:after {
+    content: '▲'; /* Up arrow for ascending sort */
+}
+
+/* Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
