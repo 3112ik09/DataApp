@@ -14,6 +14,10 @@ def data_and_charts(request):
     categorical_data = data_points.values_list('is_categorical' , flat=True)
     numerical_data = data_points.values_list('value', flat=True)
 
+    max_value = max(numerical_data)
+    min_value = min(numerical_data)
+    avg_value = sum(numerical_data)/len(numerical_data)
+
     print(categorical_data)
     print(numerical_data)
     
@@ -45,6 +49,6 @@ def data_and_charts(request):
         histograms["Marks"] = base64.b64encode(img.getvalue()).decode()
         plt.close()
 
-    return render(request, 'base.html', {'pie_charts': pie_charts, 'histograms': histograms ,'data_points':data_points,})
+    return render(request, 'base.html', {'pie_charts': pie_charts, 'histograms': histograms ,'data_points':data_points,'min_value':min_value , 'max_value':max_value ,'avg_value':avg_value})
 
     # return render(request, 'base.html', {'pie_charts': pie_charts,})

@@ -25,14 +25,23 @@
             {% endfor %}
         </table>
     </div>
+    {% if max_value %}
+    
+    <pre>
+    Maximum Value: {{ max_value }}      Minimum Value: {{ min_value }}      Average Value: {{ avg_value }}
+    
+    </pre>
+    {% endif %}
+    
+    <h1>Graphs</h1>
     <hr>
     {% for key, chart_data in pie_charts.items %}
-        <h2>{{ key }}</h2>
+        <h3>{{ key }}</h3>
         <img src="data:image/png;base64,{{ chart_data }}" alt="{{ key }}">
     {% endfor %}
     <hr>
     {% for key, chart_data in histograms.items %}
-        <h2>{{ key }}</h2>
+        <h3>{{ key }}</h3>
         <img src="data:image/png;base64,{{ chart_data }}" alt="{{ key }}">
     {% endfor %}
 </body>
